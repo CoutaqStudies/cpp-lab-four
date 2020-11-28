@@ -3,4 +3,4 @@ project(cpp_lab_four)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(cpp_lab_four main.cpp)
+add_executable(cpp_lab_four "Source Files/main.cpp" "Source Files/Game.cpp" "Header Files/Game.h" "Source Files/Player.cpp" "Header Files/Player.h")
