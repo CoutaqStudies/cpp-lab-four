@@ -9,7 +9,8 @@
 Card::Card(std::string _face) {
     face = _face;
     if(isdigit(face[0])){
-        value = int(face[0]);
+           size_t num = int(_face[0]) - int('0');
+        value = num;
     }else if(face[0]!='A'){
         value = 10;
     } else{
