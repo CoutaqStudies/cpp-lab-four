@@ -6,8 +6,17 @@
 #define CPP_LAB_FOUR_CARD_H
 
 
-class Card {
+#include <string>
+#include <iostream>
 
+class Card {
+public:
+    Card();
+    Card(std::string _face);
+    friend std::ostream& operator<< (std::ostream &out, const Card &card);
+
+private:
+    std::string face;
 };
 
 

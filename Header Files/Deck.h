@@ -10,9 +10,14 @@
 
 class Deck {
 public:
-
+    Deck();
+    virtual ~Deck();
+    Card getCardAt(size_t index);
+    Card drawTopCard();
+    void showDeck();
 private:
-    Card deck[];
+    Card deck[52] = {};
+    size_t cardsLeft = 52;
 };
 
 
