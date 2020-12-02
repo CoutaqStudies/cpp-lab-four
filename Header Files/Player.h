@@ -6,8 +6,13 @@
 #define CPP_LAB_FOUR_PLAYER_H
 
 
-class Player {
+#include "../Hand.h"
 
+class Player {
+public:
+    Player();
+    Hand hand;
+    int totalCash;
 };
 
 

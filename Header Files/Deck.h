@@ -14,6 +14,7 @@ public:
     virtual ~Deck();
     Card getCardAt(size_t index);
     Card drawTopCard();
+    size_t getCardsLeft() const;
     void showDeck();
 private:
     Card deck[52] = {};

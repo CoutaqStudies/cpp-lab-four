@@ -11,10 +11,21 @@
 
 class Game {
 public:
+    Game(int startingPlayerCash);
+    void startGame(size_t bet);
+    void showInfo();
+    void addCardToPlayer();
+    void addCardToDealer();
+    void prompt();
+    void surrender();
+    void endGame();
+    size_t getTotalCash();
     //something
 private:
-    Deck deck;
-    Player players[];
+    Deck decks[4];
+    Player dealer;
+    Player user;
+    int bet;
 };
 
 

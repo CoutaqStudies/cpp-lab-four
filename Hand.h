@@ -12,14 +12,18 @@ class Hand{
 public:
     Hand();
     size_t getTotalValue();
-    void addCard(Card card);
-    friend std::ostream& operator<< (std::ostream &out, const Hand &hand);
+    void addCard(const Card& card);
+    void showDeck();
+    void resetDeck();
     virtual ~Hand();
+    bool isBlackjack();
+    friend std::ostream& operator<<(std::ostream &out, const Hand &hand);
 private:
-    Card *deck;
-    size_t totalCards = 0;
+    static const size_t maxCards = 12;
     size_t numOfAces = 0;
-
+    bool blackjack = false;
+    Card deck[maxCards] = {};
+    size_t totalCards = 0;
 };
 
 

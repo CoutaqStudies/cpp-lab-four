@@ -13,12 +13,14 @@ class Card {
 public:
     Card();
     Card(std::string _face);
-    size_t getValue();
-    friend std::ostream& operator<< (std::ostream &out, const Card &card);
+    Card(const Card &c2);
+    size_t getValue() const;
+    std::string getFace() const;
+    friend std::ostream& operator<<(std::ostream &out, const Card &card);
 
 private:
     std::string face;
-    size_t value;
+    size_t value = 99;
 };
 
 

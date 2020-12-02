@@ -47,3 +47,7 @@ void Deck::showDeck() {
     }
 }
 
+size_t Deck::getCardsLeft() const {
+    return cardsLeft;
+}
+
