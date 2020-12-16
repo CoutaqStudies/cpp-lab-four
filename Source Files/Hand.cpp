@@ -35,6 +35,7 @@ size_t Hand::getTotalValue() {
         }
         i++;
     }
+    if(totalValue>21) throw std::overflow_error("More then 21!");
     return totalValue;
 }
 

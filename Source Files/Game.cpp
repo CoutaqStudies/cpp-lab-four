@@ -6,6 +6,8 @@
 #include <ctime>
 #include <random>
 
+
+
 Game::Game(int startingPlayerCash) {
     std::cout <<"У вас "<<startingPlayerCash<<std::endl;
     user = Player();
@@ -58,8 +60,7 @@ void Game::prompt() {
 }
 void Game::startGame(size_t _bet) {
     if(user.totalCash<_bet){
-        std::cout<<"У вас недостаточно денег!"<<std::endl;
-        return;
+        throw std::out_of_range("not enough money");
     }
     bet = _bet;
     user.totalCash-=bet;
@@ -72,11 +73,21 @@ void Game::endGame() {
     std::cout<<"Игра окончена."<<std::endl;
     addCardToDealer();
     showInfo();
-    size_t userScore = user.hand.getTotalValue();
+    size_t userScore = 0;
+    bool userLost = false;
+    try{
+        userScore = user.hand.getTotalValue();
+    } catch (std::overflow_error) {
+        std::cout<<"У вас больше 21, и поэтому вы проиграли. Вы потеряли "<<bet<<"."<<std::endl;
+        std::cout <<"У вас "<<user.totalCash<<std::endl;
+        user.hand.resetDeck();
+        dealer.hand.resetDeck();
+        return;
+    }
     size_t dealerScore = dealer.hand.getTotalValue();
     std::cout<<"У дилера "<<dealerScore<<"."<<std::endl;
     std::cout<<"У вас "<<userScore<<"."<<std::endl;
-    bool userLost = false;
+
     if(userScore==21){
         std::cout<<"У вас 21 очко. Вы победили."<<std::endl;
         if(user.hand.isBlackjack()){

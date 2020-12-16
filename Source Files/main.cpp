@@ -3,6 +3,14 @@
 #include "../Header Files/Deck.h"
 #include "../Header Files/Hand.h"
 #include "../Header Files/Game.h"
+#include <exception>
+ struct TooMuchException : public std::exception
+{
+    const char * what () const throw ()
+    {
+        return "Перебор!";
+    }
+};
 
 int main() {
     int exit = 0;
@@ -16,13 +24,17 @@ int main() {
         std::cin>>betString;
         std::stringstream sstream(betString);
         sstream >> bet;
-        g.startGame(bet);
-        g.showInfo();
-        g.prompt();
-        if(g.getTotalCash()==0){
-            std::cout<<"У вас не осталось денег. Игра окончена."<<std::endl;
-            exit = 2;
-            break;
+        try{
+            g.startGame(bet);
+            g.showInfo();
+            g.prompt();
+            if(g.getTotalCash()==0){
+                std::cout<<"У вас не осталось денег. Игра окончена."<<std::endl;
+                exit = 2;
+                break;
+            }
+        } catch (std::out_of_range) {
+            std::cout<<"У вас недостаточно денег!"<<std::endl;
         }
         std::cout<<"1. Продолжить"<<std::endl;
         std::cout<<"2. Выйти"<<std::endl;
