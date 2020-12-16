@@ -6,7 +6,7 @@
 #define CPP_LAB_FOUR_PLAYER_H
 
 
-#include "../Hand.h"
+#include "Hand.h"
 
 class Player {
 public:

@@ -2,7 +2,7 @@
 // Created by Michael on 30.11.2020.
 //
 
-#include "Hand.h"
+#include "../Header Files/Hand.h"
 
 Hand::~Hand() {
 }

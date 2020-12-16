@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include "../Header Files/Deck.h"
-#include "../Hand.h"
+#include "../Header Files/Hand.h"
 #include "../Header Files/Game.h"
 
 int main() {

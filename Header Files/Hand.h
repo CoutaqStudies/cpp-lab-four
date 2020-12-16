@@ -6,7 +6,7 @@
 #define CPP_LAB_FOUR_HAND_H
 
 
-#include "Header Files/Deck.h"
+#include "Deck.h"
 
 class Hand{
 public:
